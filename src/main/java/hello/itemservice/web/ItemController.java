@@ -13,13 +13,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
-@RequestMapping("/items")
 @RequiredArgsConstructor
+@RequestMapping("/items")
 public class ItemController {
 
     private final ItemService itemService;
 
-    @GetMapping
+    @GetMapping()
     public String items(@ModelAttribute("itemSearch") ItemSearchCond itemSearch, Model model) {
         List<Item> items = itemService.findItems(itemSearch);
         model.addAttribute("items", items);
